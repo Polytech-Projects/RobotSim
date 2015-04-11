@@ -10,6 +10,13 @@ def init():
     FenetrePrincipale.title("Simulation déplacement d'un robot")
     Graphique.config(width=800, height=600, bg='white')
     Graphique.pack()
+    CaseSelector.config(width=80, height=80, bg='white')
+    CaseSelector.create_rectangle(2, 2, 40, 40, fill='black', outline='blue', tags='mur')
+    CaseSelector.create_rectangle(41, 2, 81, 40, fill='white', outline='blue', tags='vide')
+    CaseSelector.create_rectangle(0, 42, 40, 80, fill='grey', outline='blue', tags='robot')
+    CaseSelector.itemconfig(ALL, activeoutline='red')
+    CaseSelector.pack(side='right')
+    Start.pack(side='right')
 
 
 """ Fonction permettant de simplifier la création d'un tableau
@@ -64,9 +71,15 @@ def dessiner_grille(canevas):
             canevas.create_rectangle(pos_x, pos_y, width_bis, height_bis, fill='green', outline='blue', tags=r_tag)
 
 
+def start_simulation():
+    print('simulation lancée')
+
+
 """ Définition des variables """
 FenetrePrincipale = Tk()
 Graphique = Canvas(FenetrePrincipale)
+CaseSelector = Canvas(FenetrePrincipale)
+Start = Button(FenetrePrincipale, text='Lancer la simulation', command='start_simulation')
 Grille = creation_tableau(10, 20)
 dessiner_grille(Graphique)
 
