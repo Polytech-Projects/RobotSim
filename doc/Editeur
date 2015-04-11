@@ -1,0 +1,4 @@
+L'éditeur permettra de modifier le labyrinthe si le robot n'est pas en déplacement
+Tous les type de cases seront représenté afin de pouvoir être sélectionné et placé
+Il mettra en évidence le bloc sélectionné en mettant son contour d'une certaine couleur
+Il indiquera au labyrinthe que celui-ci a été modifié lors d'un clic sur celui-ci

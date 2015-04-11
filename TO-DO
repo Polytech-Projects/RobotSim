@@ -1,0 +1,14 @@
+[ ] -créer une class Labyrinthe
+        [ ] -regrouper toutes les fonctions y appartenants
+        [ ] -doit faire correspondre son tableau de valeur à son affichage (via les tags des entités du canvas)
+        [ ] -donner un moyen de pouvoir lire la valeur d'une case
+[ ] -créer une class main (représentera la fenêtre principale)
+        [ ] -créer au moins 2 layout (un pour l'affichage du labyrinthe, un pour les boutons et les options d'édition)
+        [ ] -devra permettre la sélection du type d'algorithme de déplacement du robot
+            [ ] -utiliser une radiobox
+[ ] -créer une class éditeur
+        [ ] -doit permettre la sélection du type de case que l'on veut placer
+        [ ] -doit signaler le type de bloc actuellement sélectionné
+        [ ] -doit signaler la modification d'un bloc au labyrinthe
+[ ] -créer une classe robot
+        [ ] -comportera les différents algorithme de déplacement

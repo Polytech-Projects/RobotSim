@@ -1,0 +1,7 @@
+Contient un tableau de valeurs:
+    -mur
+    -vide
+Est représenté par un ensemble de rectangle coloré selon ce qu'il représente:
+    -noir -> mur
+    -blanc -> vide
+    Chaque rectangle aura un tag représantant ses coordonnées, de la forme 'x,y'.

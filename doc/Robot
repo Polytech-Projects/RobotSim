@@ -1,0 +1,4 @@
+Le robot sera représenté soit par une image, soit par un couleur.
+Il se déplacera de case en case:
+    -avant de bouger, il interrogera le labyrinthe pour savoir si la case sur laquelle il veut aller est libre
+Il aura différents algorithme de déplacement.
