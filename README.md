@@ -5,9 +5,9 @@ Projet Polytech de 2015
 Programmer une application qui simule le déplacement d'un robot dans un labyrinthe
 
 # Outils de développement
-* Python 3.4.3
+* [Python 3.4.3](https://www.python.org/downloads/release/python-342/)
 * Tkinter (pour l'interface graphique)
-* IDE PyCharm
+* IDE [PyCharm - Community Edition](https://www.jetbrains.com/pycharm/download/)
 
 # Sites d'aide pour Python
 * [OpenClassrooms - Apprendre Python](http://openclassrooms.com/courses/apprenez-a-programmer-en-python)
