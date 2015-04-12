@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-__author__ = 'Tanguy,Romain,William,Denis'
+__author__ = 'Tanguy,Romain,William'
 
 """ Importation des packages """
 from tkinter import *
