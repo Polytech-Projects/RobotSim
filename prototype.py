@@ -1,9 +1,10 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 __author__ = 'Tanguy,Romain,William'
 
 """ Importation des packages """
-from tkinter import *
+from Tkinter import *
 
 """ Définition des fonctions """
 def init():
