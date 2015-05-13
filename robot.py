@@ -17,9 +17,15 @@ class Robot():
         self.coord_y = labyrinthe.robot_start_y * labyrinthe.hauteur_carre
         self.logic_coord_x = labyrinthe.robot_start_y
         self.logic_coord_y = labyrinthe.robot_start_x
-        self.image = PhotoImage(file="robot.gif")
-        self.displayimage = self.image.subsample(2, 2)
-        self.display = labyrinthe.laby.create_image(self.coord_x, self.coord_y, anchor='nw', image=self.displayimage)
+        self.image_up = PhotoImage(file="up.gif")
+        self.image_down = PhotoImage(file="down.gif")
+        self.image_right = PhotoImage(file="right.gif")
+        self.image_left = PhotoImage(file="left.gif")
+        self.displayimage_up = self.image_up.subsample(2, 2)
+        self.displayimage_down = self.image_down.subsample(2, 2)
+        self.displayimage_right = self.image_right.subsample(2, 2)
+        self.displayimage_left = self.image_left.subsample(2, 2)
+        self.display = labyrinthe.laby.create_image(self.coord_x, self.coord_y, anchor='nw', image=self.displayimage_up)
         self.ref_labyrinthe = labyrinthe
         self.anim_count = 0
         self.anim = False
@@ -75,12 +81,16 @@ class Robot():
             self.anim_count = 0 """
         for i in range(1, 11):
             if direction == 'Up':
+                self.ref_labyrinthe.laby.itemconfig(self.display, image=self.displayimage_up)
                 self.ref_labyrinthe.laby.move(self.display, 0, -4)
             if direction == 'Left':
+                self.ref_labyrinthe.laby.itemconfig(self.display, image=self.displayimage_left)
                 self.ref_labyrinthe.laby.move(self.display, -4, 0)
             if direction == 'Down':
+                self.ref_labyrinthe.laby.itemconfig(self.display, image=self.displayimage_down)
                 self.ref_labyrinthe.laby.move(self.display, 0, 4)
             if direction == 'Right':
+                self.ref_labyrinthe.laby.itemconfig(self.display, image=self.displayimage_right)
                 self.ref_labyrinthe.laby.move(self.display, 4, 0)
             self.ref_labyrinthe.laby.update()
             time.sleep(0.025)
