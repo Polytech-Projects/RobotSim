@@ -36,8 +36,8 @@ class Robot():
         self.anim_count = 0
         self.anim = False
         # ------------ Variables pour l'algorithme ------------
-        self.direction_actuel = 'Up'
-        self.direction_ancienne = ''
+        self.direction_actuel = 'Up' # ATTENTION INUTILISE
+        self.direction_ancienne = 'Up'
 
     def move(self, direction):
         if direction == 'Left':
@@ -78,29 +78,37 @@ class Robot():
             time.sleep(0.025)
     
     def algo_droite(self):
-        """ Fait comme si le robot longeait le mur droit.
-            Au départ s'il ne détecte pas de mur proche de lui, il part vers le haut.
-            """
-        # On choisi une direction de base arbitrairement qui est Up (définit dans le constructeur)
-        if direction == 'Left':
-            new_coord_x = self.logic_coord_x
-            new_coord_y = self.logic_coord_y - 1
-        if direction == 'Up':
-            new_coord_x = self.logic_coord_x - 1
-            new_coord_y = self.logic_coord_y
-        if direction == 'Right':
-            new_coord_x = self.logic_coord_x
-            new_coord_y = self.logic_coord_y + 1
-        if direction == 'Down':
-            new_coord_x = self.logic_coord_x + 1
-            new_coord_y = self.logic_coord_y
-        
-        # Si la case est vide on avance, sinon on cherche où se trouve le mur
-        if self.ref_labyrinthe.test_case_vide(new_coord_x, new_coord_y):
-            self.logic_coord_x = new_coord_x
-            self.logic_coord_y = new_coord_y
-            self.coord_x = self.logic_coord_x * self.ref_labyrinthe.largeur_carre
-            self.coord_y = self.logic_coord_y * self.ref_labyrinthe.hauteur_carre
-            self.animation(direction)
-        else
-            
+        """ Le robot regarde toujours vers la droite afin de savoir s'il peut y aller en fonction
+            de sa direction de base."""
+        # Si il partait vers la haut
+        if self.direction_ancienne == 'Up':
+            # On regarde s'il peut maintenant tourner à droite (par rapport à l'écran)
+            if self.ref_labyrinthe.test_case_vide(self.logic_coord_x + 1, self.logic_coord_y):
+                # On peut aller à droite donc on y va
+                self.logic_coord_x += 1
+                self.coord_x = self.logic_coord_x * self.ref_labyrinthe.largeur_carre
+                self.direction_ancienne = 'Right'
+                self.animation('Up')
+            # TODO: POUR LES 3 AUTRES RAJOUTER AUSSI LES TESTES
+        # Si il partait vers le bas
+        if self.direction_ancienne == 'Down':
+            # On regarde s'il peut maintenant tourner à gauche (par rapport à l'écran)
+            if self.ref_labyrinthe.test_case_vide(self.logic_coord_x - 1, self.logic_coord_y):
+                self.logic_coord_x -= 1
+                self.coord_x = self.logic_coord_x * self.ref_labyrinthe.largeur_carre
+                self.direction_ancienne = 'Left'
+                self.animation('Down')
+        if self.direction_ancienne == 'Right':
+            # On regarde s'il peut maintenant tourner vers le bas (par rapport à l'écran)
+            if self.ref_labyrinthe.test_case_vide(self.logic_coord_x, self.logic_coord_y + 1):
+                self.logic_coord_y += 1
+                self.coord_y = self.logic_coord_y * self.ref_labyrinthe.hauteur_carre
+                self.direction_ancienne = 'Down'
+                self.animation('Down')
+        if self.direction_ancienne == 'Left':
+            # On regarde s'il peut maintenant tourner vers le haut (par rapport à l'écran)
+            if self.ref_labyrinthe.test_case_vide(self.logic_coord_x, self.logic_coord_y - 1):
+                self.logic_coord_y -= 1
+                self.coord_y = self.logic_coord_y * self.ref_labyrinthe.hauteur_carre
+                self.direction_ancienne = 'Up'
+                self.animation('Down')
